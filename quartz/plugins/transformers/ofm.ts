@@ -264,6 +264,21 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                       value: `<iframe src="${url}" class="pdf"></iframe>`,
                     }
                   } else {
+                    // Check if this is an excalidraw file by looking for matching slug in Excalidraw folder
+                    const slug = slugifyFilePath(fp as FilePath)
+                    const excalidrawSlug = "Excalidraw/" + fp.replace(/\.md$/, "")
+                    const isExcalidraw = ctx.allSlugs?.some(
+                      (s) => s === excalidrawSlug || s.endsWith("/" + fp.replace(/\.md$/, "")),
+                    )
+
+                    if (isExcalidraw) {
+                      const baseSlug = slug.replace(/\.md$/, "")
+                      const svgUrl = baseSlug + ".light.svg"
+                      return {
+                        type: "html",
+                        value: `<div class="excalidraw-embed" data-svg-url="${svgUrl}"><img src="${svgUrl}" alt="${alias ?? fp}" class="excalidraw-svg" style="max-width: 100%; height: auto;" loading="lazy" /></div>`,
+                      }
+                    }
                     const block = anchor
                     return {
                       type: "html",

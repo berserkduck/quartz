@@ -23,9 +23,9 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "LXGW WenKai TC", //"Source Sans Pro",
-        code: { name: "JetBrains Mono", weights: [100, 400], includeItalic: true }, // include Thin 100 + regular and italics
+        header: { name: "LXGW WenKai TC", weights: [700] },
+        body: "LXGW WenKai TC",
+        code: "JetBrains Mono",
       },
       colors: {
         lightMode: {

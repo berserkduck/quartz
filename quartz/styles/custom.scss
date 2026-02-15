@@ -1,3 +1,11 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+// Example: use JetBrains Mono thin italic for code blocks
+code,
+pre {
+	font-family: var(--codeFont);
+	font-weight: 100;
+	font-style: italic;
+}

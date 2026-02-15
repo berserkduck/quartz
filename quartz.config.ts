@@ -24,8 +24,8 @@ const config: QuartzConfig = {
       cdnCaching: true,
       typography: {
         header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "JetBrains Mono", //"IBM Plex Mono",
+        body: "LXGW WenKai TC", //"Source Sans Pro",
+        code: { name: "JetBrains Mono", weights: [100, 400], includeItalic: true }, // include Thin 100 + regular and italics
       },
       colors: {
         lightMode: {

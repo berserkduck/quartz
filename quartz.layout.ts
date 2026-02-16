@@ -68,10 +68,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
-      components: [
-        { Component: Component.Search() },
-        { Component: Component.Darkmode() },
-      ],
+      components: [{ Component: Component.Search() }, { Component: Component.Darkmode() }],
     }),
     Component.Explorer(),
   ],

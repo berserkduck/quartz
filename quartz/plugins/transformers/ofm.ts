@@ -22,6 +22,9 @@ import checkboxScript from "../../components/scripts/checkbox.inline"
 // @ts-ignore
 import mermaidScript from "../../components/scripts/mermaid.inline"
 import mermaidStyle from "../../components/styles/mermaid.inline.scss"
+// @ts-ignore
+import excalidrawScript from "../../components/scripts/excalidraw.inline"
+import excalidrawStyle from "../../components/styles/excalidraw.inline.scss"
 import { FilePath, pathToRoot, slugTag, slugifyFilePath } from "../../util/path"
 import { toHast } from "mdast-util-to-hast"
 import { toHtml } from "hast-util-to-html"
@@ -793,6 +796,18 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
           inline: true,
         })
       }
+
+      js.push({
+        script: excalidrawScript,
+        loadTime: "afterDOMReady",
+        contentType: "inline",
+        moduleType: "module",
+      })
+
+      css.push({
+        content: excalidrawStyle,
+        inline: true,
+      })
 
       return { js, css }
     },
